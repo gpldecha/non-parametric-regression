@@ -6,7 +6,7 @@ compiler:
     - g++
 
 before_script:  
-    - sudo apt-get install libboost-python-dev libflann1.8
+    - sudo apt-get install libboost-python-dev libflann-dev
     - mkdir build
     - cd build
     - cmake ..
