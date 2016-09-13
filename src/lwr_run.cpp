@@ -136,7 +136,6 @@ void my_test(){
         lwr_opts.D[i] = 1*1;
     }
 
-    lwr_opts.dim     = dim;
     lwr_opts.k_bias  = 1;
     lwr_opts.K       = 3;
     lwr_opts.bUseKDT = true;
@@ -192,7 +191,6 @@ void f_flann_test(){
         lwr_opts.D[i] = 5*5;
     }
 
-    lwr_opts.dim     = dim;
     lwr_opts.k_bias  = 1;
     lwr_opts.y_bias  = 0;
     lwr_opts.K       = 10;

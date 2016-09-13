@@ -13,7 +13,6 @@ double evaluate_lwr(int dim,int num_data,int num_test){
         lwr_opts.D[i] = 1*1;
     }
 
-    lwr_opts.dim    = dim;
     lwr_opts.k_bias = 1;
     lwr_opts.y_bias = 0;
     lwr_opts.bUseKDT = true;

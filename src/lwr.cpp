@@ -7,8 +7,7 @@ LWR::LWR(lwr_options lwr_opts):lwr_opts(lwr_opts){
     K      = lwr_opts.K;
     y_bias = lwr_opts.y_bias;
     k_bias = lwr_opts.k_bias;
-    dim    = lwr_opts.dim;
-
+    dim    = lwr_opts.D.size();
     D.set_size(dim,dim);
     D.zeros();
 
@@ -169,13 +168,7 @@ bool LWR::check_input(const arma::mat& Xq) const{
 }
 
 void LWR::f_simple(double *ptr_y, const arma::mat& Xq){
-    //  X   : (D x N)
-    //  Xq   : (D x M)
-    Xq.print("Xq");
-    D.print("D");
 
-
-    std::cout<< "f_simple" << std::endl;
     arma::mat tmp(dim+1,dim+1);
     tmp.zeros();
     B.set_size(dim+1);
@@ -190,8 +183,6 @@ void LWR::f_simple(double *ptr_y, const arma::mat& Xq){
 
         W = exp(-0.5 * (W % W));
 
-        W.print("W");
-
         if(arma::min(W(arma::span(0,W.n_elem-2))) > 0.01){
             W(W.n_elem-1) = 0;
         }else{
@@ -205,58 +196,27 @@ void LWR::f_simple(double *ptr_y, const arma::mat& Xq){
         }
         // (D+1 x 1) =  (D+1 x D+1) (D+1 x N+1)  (N+1 x 1)
 
-
-        /*  if(arma::det(tmp) == 0){
-            B.zeros();
-            B(B.n_elem-2) = 1;
-        }else{*/
-        //   B = arma::pinv(Xone * WX)  * Xone * (W % yone);
-        //  tmp =;
         if(!arma::solve(B,Xone * WX + I,Xone * (W % yone))){
             B.zeros();
             B(B.n_elem-1) = 1;
         }
 
-
-        //}
-
-        //B = arma::pinv(Xone * WX)  * Xone * (W % yone);
-        //  if(!arma::solve(B,Xone * WX, Xone * (W % yone))){
-        //      B = arma::pinv(Xone * WX)  * Xone * (W % yone);
-        //  }
-        //         (1 x D)     (D x 1)
         ptr_y[i] = arma::as_scalar(Xq.col(i).st() * B(arma::span(0,dim-1))) + B(dim);
     }
 }
 
 void LWR::f_flann(double *ptr_y, const arma::mat& Xq){
 
-    /*std::cout<< "f_flann" << std::endl;
-
-    std::cout<< "X:    (" << X.n_rows << " x " << X.n_cols << ")" << std::endl;
-    std::cout<< "Xone: (" << Xone.n_rows << " x " << Xone.n_cols << ")" << std::endl;
-    std::cout<< "yone: (" << yone.n_rows << " x " << yone.n_cols << ")" << std::endl;
-    std::cout<< "W:    (" << W.n_rows << " x " << W.n_cols << ")" << std::endl;
-    std::cout<< "k:    "  << K << std::endl;*/
-
-
     lwr_flann.ann(Xq);
-    //std::cout<< "lwr_flann.ann(Xq) after" << std::endl;
     // (M x K)
     Matrix<int>&  indices = lwr_flann.indices;
-
-    //std::cout<< "f_flann after indices" << std::endl;
 
     arma::mat tmp(dim+1,dim+1);
     tmp.zeros();
     B.set_size(dim+1);
 
-    //std::size_t dim     = Xq.n_rows;
     std::size_t num_obs = Xq.n_cols;
 
-
-    // assert(yone.n_rows == K-1);
-    // assert(dim == Xq.n_rows);
 
     // Xq : (D x M)
     for(std::size_t i = 0; i < num_obs;i++){
@@ -273,15 +233,8 @@ void LWR::f_flann(double *ptr_y, const arma::mat& Xq){
         }
         Xone(arma::span(0,dim-1),K) = Xq.col(i);
 
-        // W.print("d");
-
         // (K x 1)
         W = exp(-0.5 * (W % W));
-
-        /* W.print("W");
-          std::cout<< "sum_W: " << arma::sum(W(arma::span(0,W.n_elem-2))) << std::endl;
-          std::cout<< "min(W): " << arma::min(W(arma::span(0,W.n_elem-2))) << std::endl;
-        */
 
         if(arma::min(W(arma::span(0,W.n_elem-2))) > 0.01){
             W(W.n_elem-1) = 0;

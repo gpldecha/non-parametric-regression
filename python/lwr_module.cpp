@@ -41,24 +41,24 @@ py::object stdVecToNumpyArray( std::vector<double> const& vec )
 }
 
 
-void arr2mat(const py::numeric::array &a, arma::mat& X, const std::size_t rows, const std::size_t cols)
+void arr2mat(const py::numeric::array &a, arma::mat& X, const std::size_t D, const std::size_t N)
 {
-    if(X.n_elem != rows * cols)
+    if(X.n_elem != D * N)
     {
-        X.resize(rows,cols);
+        X.resize(D,N);
     }
 
-    if(rows == 1){
+    if(D == 1){
 
-        for(std::size_t i = 0; i < cols; i++) {
+        for(std::size_t i = 0; i < N; i++) {
             X(0,i) = extract<double>(a[i]);
 
         }
 
-    }else if(rows == 2){
+    }else if(D == 2){
 
-        for(std::size_t i = 0; i < rows; i++) {
-            for (std::size_t j = 0; j < cols; j++) {
+        for(std::size_t i = 0; i < D; i++) {
+            for (std::size_t j = 0; j < N; j++) {
                 X(i,j) = extract<double>(a[i][j]);
             }
         }
@@ -111,15 +111,16 @@ void lwr_train(lwr::LWR& lwr, const py::numeric::array& arr_X, const py::numeric
 
     if(num_dim_X == 1){
         X_d = 1;
+        X_n = extract<int>(shape_X[0]); // N
     }else if(num_dim_X == 2){
-        X_d = extract<int>(shape_X[1]);
+        X_d = extract<int>(shape_X[0]);
+        X_n = extract<int>(shape_X[1]); // N
     }else{
         std::cout<< "numpy array X should have 2 dimensions: (N x D), currently:  " << num_dim_X << std::endl;
         return;
     }
 
 
-    X_n = extract<int>(shape_X[0]); // N
     y_n = extract<int>(shape_y[0]); // N
     y_d = 1;
 
@@ -164,14 +165,13 @@ py::object lwr_predict(lwr::LWR& lwr, const py::numeric::array& arr_X)
 
     if(num_dim_X == 1){
         X_d = 1;
+        X_n = extract<int>(shape_X[0]); // N
     }else if(num_dim_X == 2){
-        X_d = extract<int>(shape_X[1]);
+        X_d = extract<int>(shape_X[0]);
+        X_n = extract<int>(shape_X[1]); // N
     }else{
         std::cout<< "numpy array X should have 2 dimensions: (N x D), currently:  " << num_dim_X << std::endl;
     }
-    X_n = extract<int>(shape_X[0]); // N
-
-    std::cout<< "X_n: " << X_n << " X_d: " << X_d << std::endl;
 
     // copy input
     arma::mat Xq(X_d,X_n);
@@ -180,15 +180,7 @@ py::object lwr_predict(lwr::LWR& lwr, const py::numeric::array& arr_X)
     double data[X_n];
 
 
-    std::cout<< "Xq: (" << Xq.n_rows << " x " << Xq.n_cols << ")" << std::endl;
-
     lwr.f(data,Xq);
-
-    for(std::size_t i = 0; i < X_n;i++)
-    {
-        std::cout<< data[i] << " ";
-    }
-
 
 
     npy_intp size = X_n;
@@ -208,9 +200,8 @@ BOOST_PYTHON_MODULE(pylwr)
 
 
     class_<lwr::lwr_options>("lwr_options")
-            .def("print", &lwr::lwr_options::print)
+            .def("print_param", &lwr::lwr_options::print)
             .def_readwrite("bUseKDT",&lwr::lwr_options::bUseKDT)
-            .def_readwrite("dim",&lwr::lwr_options::dim)
             .def_readwrite("K",&lwr::lwr_options::K)
             .def_readwrite("k_bias",&lwr::lwr_options::k_bias)
             .def_readwrite("y_bias",&lwr::lwr_options::y_bias)
