@@ -145,24 +145,24 @@ void LWR::f(double *ptr_y,const double * const ptr_Xq,const std::size_t num_cols
 bool LWR::check_input(const arma::mat& Xq) const{
     // X must be in format (D x M), rows are dimensions and columns are observations
     if(dim != X.n_rows){
-        std::cerr<< "dim != X.n_rows dim[" << dim << "] X.n_rows[" << X.n_rows << "]" << std::endl;
+        std::cerr<< "(fail 1) dim != X.n_rows dim[" << dim << "] X.n_rows[" << X.n_rows << "]" << std::endl;
         return false;
     }
     if(dim != Xq.n_rows){
-        std::cerr<< "dim[" << dim <<"] != Xq.n_rows[" << Xq.n_rows << "]" << std::endl;
+        std::cerr<< "(fail 2) dim[" << dim <<"] != Xq.n_rows[" << Xq.n_rows << "]" << std::endl;
         return false;
     }
     if(lwr_opts.bUseKDT)
     {
         if(yone.n_rows != (K+1))
         {
-            std::cerr<< "Yone.n_rows[" << yone.n_rows << "] " << " != K+1 [" << (K+1) << "] " << std::endl;
+            std::cerr<< "(fail 3) Yone.n_rows[" << yone.n_rows << "] " << " != K+1 [" << (K+1) << "] " << std::endl;
             return false;
         }
     }
     // number of predictors should match number of inputs
     if(y.n_elem != X.n_cols){
-        std::cerr<< "y.n_elem["<< y.n_elem <<"] != X.n_cols[" << X.n_cols << "]" << std::endl;
+        std::cerr<< "(fail 4) y.n_elem["<< y.n_elem <<"] != X.n_cols[" << X.n_cols << "]" << std::endl;
         return false;
     }
     return true;
@@ -171,9 +171,11 @@ bool LWR::check_input(const arma::mat& Xq) const{
 void LWR::f_simple(double *ptr_y, const arma::mat& Xq){
     //  X   : (D x N)
     //  Xq   : (D x M)
-    //  Xq.print("Xq");
+    Xq.print("Xq");
+    D.print("D");
 
-    //std::cout<< "f_simple" << std::endl;
+
+    std::cout<< "f_simple" << std::endl;
     arma::mat tmp(dim+1,dim+1);
     tmp.zeros();
     B.set_size(dim+1);
@@ -185,7 +187,11 @@ void LWR::f_simple(double *ptr_y, const arma::mat& Xq){
             // (1 x 1) = (1 x D) * (D x D) * (D x 1)
             W(j) = arma::as_scalar((Xq.col(i) - X.col(j)).st() * D * (Xq.col(i) - X.col(j)));
         }
+
         W = exp(-0.5 * (W % W));
+
+        W.print("W");
+
         if(arma::min(W(arma::span(0,W.n_elem-2))) > 0.01){
             W(W.n_elem-1) = 0;
         }else{

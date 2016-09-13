@@ -15,6 +15,11 @@ public:
         dim     = 1;
         bUseKDT = false;
         D.resize(dim);
+        for(int i = 0; i < dim;i++)
+        {
+            D[i] = 1;
+        }
+
         y_bias  = 0;
         k_bias  = 1;
         K       = 10;

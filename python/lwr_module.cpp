@@ -4,15 +4,10 @@
 #include "lwr/lwr_options.h"
 #include "lwr/lwr.h"
 #include <numpy/ndarrayobject.h> // ensure you include this header
-#include <boost/numpy.hpp>
-
-
 
 
 using namespace boost::python;
 namespace py = boost::python;
-namespace bp = boost::python;
-namespace bn = boost::numpy;
 
 py::list get(const lwr::lwr_options& lwr_opts)
 {
@@ -34,37 +29,175 @@ void set(lwr::lwr_options& lwr_opts,py::object o)
 
 py::object stdVecToNumpyArray( std::vector<double> const& vec )
 {
-      npy_intp size = vec.size();
+    npy_intp size = vec.size();
 
-     /* const_cast is rather horrible but we need a writable pointer
-        in C++11, vec.data() will do the trick
-        but you will still need to const_cast
-      */
+    double * data = size ? const_cast<double *>(&vec[0])
+            : static_cast<double *>(NULL);
 
-      double * data = size ? const_cast<double *>(&vec[0])
-        : static_cast<double *>(NULL);
-
-    // create a PyObject * from pointer and data
-      PyObject * pyObj = PyArray_SimpleNewFromData( 1, &size, NPY_DOUBLE, data );
-      boost::python::handle<> handle( pyObj );
-      boost::python::numeric::array arr( handle );
-
-    /* The problem of returning arr is twofold: firstly the user can modify
-      the data which will betray the const-correctness
-      Secondly the lifetime of the data is managed by the C++ API and not the
-      lifetime of the numpy array whatsoever. But we have a simple solution..
-     */
-
-       return arr.copy(); // copy the object. numpy owns the copy now.
-  }
+    PyObject * pyObj = PyArray_SimpleNewFromData( 1, &size, NPY_DOUBLE, data );
+    boost::python::handle<> handle( pyObj );
+    boost::python::numeric::array arr( handle );
+    return arr.copy(); // copy the object. numpy owns the copy now.
+}
 
 
-void lwr_set_X(lwr::LWR lwr,const py::numeric::array &a)
+void arr2mat(const py::numeric::array &a, arma::mat& X, const std::size_t rows, const std::size_t cols)
+{
+    if(X.n_elem != rows * cols)
+    {
+        X.resize(rows,cols);
+    }
+
+    if(rows == 1){
+
+        for(std::size_t i = 0; i < cols; i++) {
+            X(0,i) = extract<double>(a[i]);
+
+        }
+
+    }else if(rows == 2){
+
+        for(std::size_t i = 0; i < rows; i++) {
+            for (std::size_t j = 0; j < cols; j++) {
+                X(i,j) = extract<double>(a[i][j]);
+            }
+        }
+
+    }else{
+        std::cerr<< "lwr_modules.cpp: arr2mat: only 1D and 2D X supported!" << std::endl;
+        return;
+    }
+
+
+}
+
+void arr2colvec(const py::numeric::array& a, arma::colvec& y, const std::size_t rows)
+{
+    if(y.n_elem != rows)
+    {
+        y.resize(rows);
+    }
+
+    for(std::size_t i = 0; i < rows; i++) {
+        y(i) = extract<double>(a[i]);
+    }
+}
+
+
+/**
+ * @brief lwr_train : sets the parameters -> data points (X,y)
+ * @param lwr
+ * @param arr_X     : (N x D), N: number of samples, D: number of dimensions
+ * @param arr_y     : (N x 1), predictor output
+ */
+void lwr_train(lwr::LWR& lwr, const py::numeric::array& arr_X, const py::numeric::array& arr_y)
+{
+    const tuple &shape_X = extract<tuple>(arr_X.attr("shape"));
+    const tuple &shape_y = extract<tuple>(arr_y.attr("shape"));
+
+    int num_dim_X = py::len(shape_X);
+    int num_dim_y = py::len(shape_y);
+
+    std::cout<< "num_dim_X: " << num_dim_X << std::endl;
+    std::cout<< "num_dim_y: " << num_dim_y << std::endl;
+
+    if(num_dim_y != 1)
+    {
+        std::cout<< "y should be a one dimensional numpy array: (N,)" << std::endl;
+        return;
+    }
+
+    int X_n, X_d, y_n, y_d;
+
+    if(num_dim_X == 1){
+        X_d = 1;
+    }else if(num_dim_X == 2){
+        X_d = extract<int>(shape_X[1]);
+    }else{
+        std::cout<< "numpy array X should have 2 dimensions: (N x D), currently:  " << num_dim_X << std::endl;
+        return;
+    }
+
+
+    X_n = extract<int>(shape_X[0]); // N
+    y_n = extract<int>(shape_y[0]); // N
+    y_d = 1;
+
+    std::cout<< "X_n: " << X_n << " x_d: " << X_d << std::endl;
+    std::cout<< "y_n: " << y_n << " y_d: " << y_d << std::endl;
+
+    if(y_d != 1)
+    {
+        std::cout<< "predictor y must be a column vector, currently (" << y_n << " x " << y_d << ")!" << std::endl;
+        return;
+    }
+
+    if(X_n != y_n)
+    {
+        std::cout<< "both input X and predictor y should have the same number of samples" << std::endl;
+        std::cout<< "   currently X: (" << X_n << " x " << X_d << ")  y: (" << y_n << " x " << y_d << ")!" << std::endl;
+        return;
+    }
+
+    arma::mat X(X_d,X_n);
+    arma::colvec y(y_n);
+
+    arr2mat(arr_X,X,X_d,X_n);
+    arr2colvec(arr_y,y,y_n);
+
+    std::cout<< "X: (" << X.n_rows << " x " << X.n_cols << ")" << std::endl;
+
+    lwr.set_X(X);
+    lwr.set_Y(y);
+}
+
+
+py::object lwr_predict(lwr::LWR& lwr, const py::numeric::array& arr_X)
 {
 
-    char const * ca = py::extract<char const *>(py::str(a));
-    std::cout << "Original array:\n" <<  ca << std::endl;
+    PyObject* pyObj = NULL;
 
+    const tuple &shape_X = extract<tuple>(arr_X.attr("shape"));
+    int num_dim_X = py::len(shape_X);
+
+    int X_n, X_d;
+
+    if(num_dim_X == 1){
+        X_d = 1;
+    }else if(num_dim_X == 2){
+        X_d = extract<int>(shape_X[1]);
+    }else{
+        std::cout<< "numpy array X should have 2 dimensions: (N x D), currently:  " << num_dim_X << std::endl;
+    }
+    X_n = extract<int>(shape_X[0]); // N
+
+    std::cout<< "X_n: " << X_n << " X_d: " << X_d << std::endl;
+
+    // copy input
+    arma::mat Xq(X_d,X_n);
+    arr2mat(arr_X,Xq,X_d,X_n);
+    // prepare outputs
+    double data[X_n];
+
+
+    std::cout<< "Xq: (" << Xq.n_rows << " x " << Xq.n_cols << ")" << std::endl;
+
+    lwr.f(data,Xq);
+
+    for(std::size_t i = 0; i < X_n;i++)
+    {
+        std::cout<< data[i] << " ";
+    }
+
+
+
+    npy_intp size = X_n;
+    pyObj = PyArray_SimpleNewFromData( 1, &size, NPY_DOUBLE, data );
+
+
+    boost::python::handle<> handle( pyObj );
+    boost::python::numeric::array arr( handle );
+    return arr.copy();
 }
 
 
@@ -75,20 +208,20 @@ BOOST_PYTHON_MODULE(pylwr)
 
 
     class_<lwr::lwr_options>("lwr_options")
-        .def("print", &lwr::lwr_options::print)
-        .def_readwrite("bUseKDT",&lwr::lwr_options::bUseKDT)
-        .def_readwrite("dim",&lwr::lwr_options::dim)
-        .def_readwrite("K",&lwr::lwr_options::K)
-        .def_readwrite("k_bias",&lwr::lwr_options::k_bias)
-        .def_readwrite("y_bias",&lwr::lwr_options::y_bias)
-        .add_property("D",get,set)
+            .def("print", &lwr::lwr_options::print)
+            .def_readwrite("bUseKDT",&lwr::lwr_options::bUseKDT)
+            .def_readwrite("dim",&lwr::lwr_options::dim)
+            .def_readwrite("K",&lwr::lwr_options::K)
+            .def_readwrite("k_bias",&lwr::lwr_options::k_bias)
+            .def_readwrite("y_bias",&lwr::lwr_options::y_bias)
+            .add_property("D",get,set)
 
-    ;
+            ;
 
     class_<lwr::LWR>("LWR")
-        .def(init<lwr::lwr_options>())
-        .def("set_X",lwr_set_X)
-    ;
-
+            .def(init<lwr::lwr_options>())
+            .def("train",lwr_train)
+            .def("predict",lwr_predict)
+            ;
 
 }
