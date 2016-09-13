@@ -1,4 +1,6 @@
-# Locally Weighted Regression
+# Non-parametric regression
+
+[![Build Status](https://travis-ci.com/epfl-lasa/kuka-lwr-ros.svg?token=d6T2YmvspfmdmqrMCGYv&branch=master)](https://travis-ci.com/epfl-lasa/kuka-lwr-ros/branches)
 
 Library of locally weighted (LWR) regression. LWR is a memory based regression which is non-parameteric. 
 It stores a set of input, X, and target values, y which form the desired training data for the regressor 
