@@ -1,24 +1,6 @@
 language: cpp
 sudo: required
-
-matrix:
-  include:
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-4.9
-      env: COMPILER=g++-4.9
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-5
-      env: COMPILER=g++-5
+dist: trusty
 
 before_script:  
     - sudo apt-get intall build-essential python-dev python-setuptools python-numpy python-scipy libatlas-dev libatlas3gf-base
@@ -33,4 +15,4 @@ before_script:
     - cmake ..
 
 script: 
-	make CXX=$COMPILER -j3  
+    - make 	  
