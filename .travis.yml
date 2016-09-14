@@ -16,6 +16,7 @@ addons:
 
 before_script:  
     - sudo apt-get install libboost-python-dev libflann-dev
+    - sudo apt-get install libarmadillo-dev
     - mkdir build
     - cd build
     - cmake ..
