@@ -20,6 +20,9 @@ matrix:
             - g++-5
       env: COMPILER=g++-5
 
+before_install:
+ - sudo apt-get install -qq python-numpy python-scipy
+
 before_script:  
     - sudo apt-get install libboost-python-dev libflann-dev
     - sudo apt-get install libarmadillo-dev
