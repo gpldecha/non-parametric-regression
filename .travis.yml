@@ -20,9 +20,6 @@ matrix:
             - g++-5
       env: COMPILER=g++-5
 
-before_install:
- - sudo apt-get install -qq python-numpy python-scipy
-
 before_script:  
     - sudo apt-get intall build-essential python-dev python-setuptools python-numpy python-scipy libatlas-dev libatlas3gf-base
     - sudo apt-get install -qq python-numpy python-scipy
