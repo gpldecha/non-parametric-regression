@@ -3,7 +3,7 @@ sudo: required
 dist: trusty
 
 before_script:  
-    - sudo apt-get intall build-essential python-dev python-setuptools python-numpy python-scipy libatlas-dev libatlas3gf-base
+    - sudo apt-get install build-essential python-dev python-setuptools python-numpy python-scipy libatlas-dev libatlas3gf-base
     - sudo apt-get install -qq python-numpy python-scipy
     - sudo apt-get install libboost-python-dev libflann-dev
     - sudo apt-get install libarmadillo-dev
