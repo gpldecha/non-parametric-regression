@@ -1,5 +1,4 @@
 #include <lwr/lwr_flann.h>
-#include <flann/io/hdf5.h>
 #include <flann/flann.hpp>
 
 namespace lwr {
