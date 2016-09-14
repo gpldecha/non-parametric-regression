@@ -14,7 +14,11 @@ set(LIBRARY_OUTPUT_PATH     ${PROJECT_SOURCE_DIR}/lib                           
 
 find_package(Armadillo)
 find_package(Boost REQUIRED COMPONENTS python)
+find_package(Numpy)
+
 find_library(FLANN_LIB NAMES flann HINTS /usr/lib/x86_64-linux-gnu/)
+
+
 set(FLANN_INCLUDE_DIRS /usr/include/flann/)
 
 if(NOT FLANN_LIB)
