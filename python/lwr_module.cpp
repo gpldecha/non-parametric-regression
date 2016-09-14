@@ -5,8 +5,6 @@
 #include "lwr/lwr.h"
 
 #include "/usr/include/numpy/ndarrayobject.h"
-//#include <numpy/ndarrayobject.h> // ensure you include this header
-
 
 using namespace boost::python;
 namespace py = boost::python;
