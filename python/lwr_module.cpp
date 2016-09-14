@@ -3,6 +3,8 @@
 #include <boost/python/suite/indexing/vector_indexing_suite.hpp>
 #include "lwr/lwr_options.h"
 #include "lwr/lwr.h"
+
+#include "/usr/include/numpy/ndarrayobject.h"
 #include <numpy/ndarrayobject.h> // ensure you include this header
 
 
