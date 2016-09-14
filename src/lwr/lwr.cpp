@@ -143,17 +143,17 @@ void LWR::f(double *ptr_y,const double * const ptr_Xq,const std::size_t num_cols
 
 bool LWR::check_input(const arma::mat& Xq) const{
     // X must be in format (D x M), rows are dimensions and columns are observations
-    if(dim != X.n_rows){
+    if(dim != static_cast<int>(X.n_rows)){
         std::cerr<< "(fail 1) dim != X.n_rows dim[" << dim << "] X.n_rows[" << X.n_rows << "]" << std::endl;
         return false;
     }
-    if(dim != Xq.n_rows){
+    if(dim != static_cast<int>(Xq.n_rows)){
         std::cerr<< "(fail 2) dim[" << dim <<"] != Xq.n_rows[" << Xq.n_rows << "]" << std::endl;
         return false;
     }
     if(lwr_opts.bUseKDT)
     {
-        if(yone.n_rows != (K+1))
+        if(static_cast<int>((yone.n_rows)) != K+1)
         {
             std::cerr<< "(fail 3) Yone.n_rows[" << yone.n_rows << "] " << " != K+1 [" << (K+1) << "] " << std::endl;
             return false;

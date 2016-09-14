@@ -58,11 +58,7 @@ void LWR_FLANN::build_index(){
 }
 
 void LWR_FLANN::ann(const arma::mat& Xq){
-   // std::cout<< "LWR_FLANN::ann" << std::endl;
-    // (D x N)
-    // Xq
     if(sptr_index != NULL){
-
 
         if(ptr_indices != NULL){
             delete[] ptr_indices;ptr_indices = NULL;
@@ -70,14 +66,8 @@ void LWR_FLANN::ann(const arma::mat& Xq){
         if(ptr_dists != NULL){
             delete[] ptr_dists; ptr_dists = NULL;
         }
-
-     //   int nn = 3;
-
-
-      //  double *ptr_X     = X.memptr();
         double *ptr_query = const_cast<double*>(Xq.memptr());
 
-     //   Matrix<double>  dataset(ptr_X,X.n_cols,X.n_rows);
         Matrix<double>  query(ptr_query,Xq.n_cols,Xq.n_rows);
 
         ptr_indices = new int[query.rows*K];
@@ -92,72 +82,18 @@ void LWR_FLANN::ann(const arma::mat& Xq){
         std::cout<< "indices: (" << indices.rows << " x " << indices.cols << ")" << std::endl;
 */
 
-       /* Index<L2<double> > index(dataset, flann::KDTreeIndexParams(4));
-        index.buildIndex();
-
-        index.knnSearch(query, indices, dists, K, flann::SearchParams(128));*/
-
 
         sptr_index->knnSearch(query,indices,dists,K,flann::SearchParams(128));
 
-        //Xq.print("Xq");
-
-       /* std::cout<< "Print Query" << std::endl;
-        for(int i = 0; i < query.rows; i++){
-            for(int j = 0; j < query.cols; j++){
-                std::cout<< "query[" <<i <<"]["<<j<<"]: " << query[i][j]  << std::endl;
-            }
-//        }*
-       /* std::cout<< " " << std::endl;
-        std::cout<< "Print dataset" << std::endl;
-        for(int i = 0; i < dataset.rows; i++){
-              std::cout<< "dataset("<<i<<"): ";
-            for(int j = 0; j < dataset.cols; j++){
-                std::cout<< dataset[i][j] << " ";
-            }
-            std::cout<<std::endl;
-        }*/
-        //ptr_X->print("ptr_X");
-
-        // do a knn search, using 128 checks
-       // sptr_index->knnSearch(query, indices, dists, K, flann::SearchParams());
-
-       /* std::cout<< "distance" <<std::endl;
-        for(int i = 0; i < dists.rows;i++){
-            for(int j = 0; j < dists.cols; j++){
-              std::cout<< "dists["<<i<<"]["<<j<<"]: " << dists[i][j] <<std::endl;
-            }
-        }*/
-      /*  std::cout<< " "<< std::endl;
-        std::cout<< " Indicies "<< std::endl;
-
-        for(std::size_t i = 0; i < query.rows;i++){
-            std::cout<< "Xq(" << i << ")" << std::endl;
-            for(std::size_t j = 0; j < K;j++){
-                print_row<double>(dataset,indices[i][j]);
-            }
-        }
-        std::cout<< " "<< std::endl;*/
-
-      /*  for(int i = 0; i < dataset.rows; i++){
-              std::cout<< "dataset("<<i<<"): ";
-            for(int j = 0; j < dataset.cols; j++){
-                std::cout<< dataset[i][j] << " ";
-            }
-            std::cout<<std::endl;
-        }
-*/
 
     }else{
         std::cout<< "ptr_index is NULL" << std::endl;
     }
 
-   // std::cout<< "LWR_FLANN::ann END" << std::endl;
 
 }
 
 void LWR_FLANN::get_indicies(double *ptr_indicies){
- //   std::cout<< "get_indicies (start)" << std::endl;
     std::size_t i = 0;
     for(std::size_t c = 0; c < indices.cols;c++){
         for(std::size_t r = 0; r < indices.rows;r++){
@@ -165,8 +101,6 @@ void LWR_FLANN::get_indicies(double *ptr_indicies){
             i = i + 1;
         }
     }
-   // std::cout<< "get_indicies (end)" << std::endl;
-
 }
 
 }

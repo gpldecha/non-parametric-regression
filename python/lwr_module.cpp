@@ -161,7 +161,7 @@ py::object lwr_predict(lwr::LWR& lwr, const py::numeric::array& arr_X)
     const tuple &shape_X = extract<tuple>(arr_X.attr("shape"));
     int num_dim_X = py::len(shape_X);
 
-    int X_n, X_d;
+    int X_n, X_d;X_n = -1; X_d = -1;
 
     if(num_dim_X == 1){
         X_d = 1;
@@ -170,7 +170,12 @@ py::object lwr_predict(lwr::LWR& lwr, const py::numeric::array& arr_X)
         X_d = extract<int>(shape_X[0]);
         X_n = extract<int>(shape_X[1]); // N
     }else{
-        std::cout<< "numpy array X should have 2 dimensions: (N x D), currently:  " << num_dim_X << std::endl;
+        std::cerr<< "numpy array X should have 2 dimensions: (N x D), currently:  " << num_dim_X << std::endl;
+    }
+
+    if(X_n < 0 || X_d < 0)
+    {
+        std::cerr<< "lwr_predict:  X_n: " << X_n << " X_d: " << X_d << std::endl;
     }
 
     // copy input

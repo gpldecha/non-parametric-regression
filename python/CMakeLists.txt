@@ -1,0 +1,18 @@
+
+
+FIND_PACKAGE(PythonInterp)
+FIND_PACKAGE(PythonLibs)
+if(APPLE AND ${PYTHON_VERSION_MAJOR} EQUAL 3)
+    FIND_PACKAGE(Boost COMPONENTS python3)
+else()
+    FIND_PACKAGE(Boost COMPONENTS python)
+endif()
+
+ENABLE_TESTING()
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
+LINK_LIBRARIES(${Boost_LIBRARIES} ${PYTHON_LIBRARIES}) # Deprecated but so convenient!
+
+# BUILD PYTHON MODULES
+
+PYTHON_ADD_MODULE(pylwr lwr_module.cpp)
+target_link_libraries(pylwr lwr)
