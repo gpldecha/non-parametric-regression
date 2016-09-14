@@ -5,18 +5,12 @@ dist: trusty
 compiler:  
     - g++
 
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - gcc-4.9
-    - g++-4.9
-    - libusb-1.0-0-dev
-
 before_script:  
     - sudo apt-get install libboost-python-dev libflann-dev
     - sudo apt-get install libarmadillo-dev
+    - sudo pip install numpy
+    - sudo apt-get install libatlas-base-dev gfortran
+    - sudo pip install scipy
     - mkdir build
     - cd build
     - cmake ..
