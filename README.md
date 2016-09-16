@@ -42,6 +42,8 @@ the examples python code in
 
 <img src="docs/images/lwr_1D.png" width="480">
 
+<img src="docs/images/lwr_2D_low_var.png" width="400"/> <img src="docs/images/lwr_2D_mid.png" width="400"/>
+
 
 
 # Regression methods
