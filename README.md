@@ -34,8 +34,11 @@ $ sudo make install
 ```
 # Quick start
 For a quick example open your favourit python editor (I use [**Spyder**](https://pythonhosted.org/spyder/)) and run
-the examples python code in non-parametric-regression/examples/example1.py
+the examples python code in 
 
+```sh
+.$ /non-parametric-regression/examples/example1.py
+```
 
 # Regression methods
 
