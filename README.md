@@ -40,6 +40,9 @@ the examples python code in
 ./non-parametric-regression/examples/example1.py
 ```
 
+![alt text](docs/images/lwr_1D.png "LWR 1D example")
+
+
 # Regression methods
 
 
