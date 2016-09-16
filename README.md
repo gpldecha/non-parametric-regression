@@ -13,14 +13,21 @@ to Eigen. Make sure you have installed all the dependencies to Eigen perfor proc
 can simply run the following commnad to install all the dependencies:
 
 ```sh
-sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev
+sudo apt-get install libatlas-base-dev libatlas3gf-base libboost-python-dev libflann-dev libarmadillo-dev
 ```
 
 Checkout the repository:
 ```sh
 $ https://github.com/gpldecha/non-parametric-regression.git
 ```
-
+cd to the directory in question and build it.
+```sh
+cd non-parametric-regression
+mkdir build
+cd build
+cmake .
+make
+```
 # Quick start
 
 
