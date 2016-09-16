@@ -37,7 +37,7 @@ For a quick example open your favourit python editor (I use [**Spyder**](https:/
 the examples python code in 
 
 ```sh
-.$ /non-parametric-regression/examples/example1.py
+./non-parametric-regression/examples/example1.py
 ```
 
 # Regression methods
