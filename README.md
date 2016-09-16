@@ -22,11 +22,15 @@ $ https://github.com/gpldecha/non-parametric-regression.git
 ```
 cd to the directory in question and build it.
 ```sh
-cd non-parametric-regression
-mkdir build
-cd build
-cmake .
-make
+$ cd non-parametric-regression
+$ mkdir build
+$ cd build
+$ cmake .
+$ make
+```
+install the library and python modules
+```sh
+$ sudo make install 
 ```
 # Quick start
 
