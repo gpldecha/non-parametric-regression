@@ -1,3 +1,9 @@
+# Checking your python path
+
+import sys
+print(sys.path)
+
+#%%
 import numpy as np
 from pylwr import *
 
@@ -34,7 +40,6 @@ y  = np.sin(0.5 * X) + np.random.normal(0, 0.1, num_samples)
 Xq = np.linspace(-10, 10, num_samples) 
 
 
-
 lwr = LWR()
 
 lwr.train(X,y)
@@ -49,8 +54,7 @@ plot_1D_LWR(X,y,Xq,yq)
 #%% EXAMPLE 2
 
 lwr_opts        = lwr_options()
-lwr_opts.D      = [0.01]
-lwr_opts.k_bias = 50
+lwr_opts.D      = [1]
 lwr_opts.y_bias = -1
 lwr_opts.print_param()
 

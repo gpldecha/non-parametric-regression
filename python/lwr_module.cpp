@@ -208,7 +208,6 @@ BOOST_PYTHON_MODULE(pylwr)
             .def("print_param", &lwr::lwr_options::print)
             .def_readwrite("bUseKDT",&lwr::lwr_options::bUseKDT)
             .def_readwrite("K",&lwr::lwr_options::K)
-            .def_readwrite("k_bias",&lwr::lwr_options::k_bias)
             .def_readwrite("y_bias",&lwr::lwr_options::y_bias)
             .add_property("D",get,set)
 

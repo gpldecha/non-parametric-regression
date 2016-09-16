@@ -6,7 +6,7 @@ namespace lwr {
 LWR::LWR(lwr_options lwr_opts):lwr_opts(lwr_opts){
     K      = lwr_opts.K;
     y_bias = lwr_opts.y_bias;
-    k_bias = lwr_opts.k_bias;
+    k_bias = 1;
     dim    = lwr_opts.D.size();
     D.set_size(dim,dim);
     D.zeros();

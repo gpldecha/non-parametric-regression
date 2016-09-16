@@ -16,7 +16,6 @@ public:
         D.resize(1);
         D[0]    = 1;
         y_bias  = 0;
-        k_bias  = 1;
         K       = 10;
     }
 
@@ -30,7 +29,6 @@ public:
             std::cout<< "bUseKDT: False" << std::endl;
         }
         std::cout<< "y_bias:  " << y_bias  << std::endl;
-        std::cout<< "k_bias:  " << k_bias  << std::endl;
         std::cout<< "K:       " << K       << std::endl;
 
     }
@@ -38,7 +36,6 @@ public:
     bool                    bUseKDT;
     std::vector<double>     D;
     double                  y_bias;
-    double                  k_bias;
     int                     K;
 
 };
