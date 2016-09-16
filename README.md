@@ -9,7 +9,7 @@ This package provides a set of non-parametric methods for regression. The implem
 # Installation
 
 This library is based on  [**Armadillo**](http://arma.sourceforge.net/download.html) which is an intuitive interface
-to Eigen. Make sure you have installed all the dependencies to Eigen perfor proceedind to install armadillo. You 
+to Eigen. Make sure you have installed all the dependencies to Eigen before proceedind to install armadillo. You 
 can simply run the following commnad to install all the dependencies:
 
 ```sh
