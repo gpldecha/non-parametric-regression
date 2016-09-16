@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/gpldecha/non-parametric-regression.svg?branch=master)](https://travis-ci.org/gpldecha/non-parametric-regression)
 
-This package provides a set of non-parametric methods for regression. The implementation of the methods is done in C++ whilst the interface is python. 
+This package provides a set of non-parametric methods for regression. The implementation of the methods is done in C++ whilst the interface is python. Non-parametric regression methods typically retains all the training data. The value of a new test point is then a function of the neighbouring points. As a result it is essential to use a fast space partion method, such as 
+[**FLANN**](http://www.cs.ubc.ca/research/flann/).  
+
 
 # Installation
 
@@ -10,12 +12,14 @@ This library is based on  [**Armadillo**](http://arma.sourceforge.net/download.h
 to Eigen. Make sure you have installed all the dependencies to Eigen perfor proceedind to install armadillo. You 
 can simply run the following commnad to install all the dependencies:
 
-sudo apt-get install libarmadillo-dev
+```sh
+sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev
+```
 
 Checkout the repository:
-
+```sh
 $ https://github.com/gpldecha/non-parametric-regression.git
-
+```
 
 # Quick start
 
