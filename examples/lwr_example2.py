@@ -4,6 +4,9 @@ import numpy as np
 from random import random, seed
 from matplotlib import cm
 
+# IMPORT LWR
+from pylwr import *
+
 
 #%% Generate training Data
 
@@ -11,7 +14,6 @@ from matplotlib import cm
 num_samples = 100
 X           = np.random.uniform(0,1,(2,num_samples))
 y           = np.sin(5.0 * X[0,:]) * np.cos(5.0 * X[1,:])/5.0 + np.random.normal(0, 0.025, num_samples)
-
 
 
 

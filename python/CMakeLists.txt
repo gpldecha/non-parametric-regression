@@ -10,7 +10,10 @@ else()
 endif()
 
 ENABLE_TESTING()
-include_directories(${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
+
+message(status " NPR_CURRENT_SOURCE_DIR: ${NPR_CURRENT_SOURCE_DIR}")
+
+include_directories(${NPR_CURRENT_SOURCE_DIR}/lwr/include ${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
 link_libraries(${Boost_LIBRARIES} ${PYTHON_LIBRARIES}) # Deprecated but so convenient!
 
 # BUILD PYTHON MODULES
@@ -18,14 +21,12 @@ link_libraries(${Boost_LIBRARIES} ${PYTHON_LIBRARIES}) # Deprecated but so conve
 python_add_module(pylwr lwr_module.cpp)
 target_link_libraries(pylwr lwr)
 
-set(PYTHON_SITE_PACKAGES /usr/local/lib/python2.7/site-packages)
-
+set(PYTHON_SITE_PACKAGES /usr/local/lib/python2.7/dist-packages/npr)
 
 
 # INSTALL PYTHON MODULES
 
 install(TARGETS pylwr DESTINATION ${PYTHON_SITE_PACKAGES})
-
 #find_path( PYTHON_SITE_PACKAGES site-packages ${PYTHON_INCLUDE_PATH}/.. )
 #execute_process ( COMMAND python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()" OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE)
 #message(status " site-package: " ${PYTHON_SITE_PACKAGES})
