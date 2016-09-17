@@ -247,42 +247,11 @@ void LWR::f_flann(double *ptr_y, const arma::mat& Xq){
             WX.col(c) =  W % Xone.row(c).st();
         }
 
-        /*  WX.print("WX");
-        Xone.print("Xone");
-        W.print("W");
-        yone.print("yone");
-        (W % yone).print("W*yone");
-        (Xone * (W % yone)).print("Xone * (W % yone)");
-        (Xone * WX).print("Xone * WX");
-        arma::mat tmp = (Xone * WX);*/
 
-        // (D+1 x 1) =  (D+1 x D+1) (D+1 x N+1)  (N+1 x 1)
-        //R B = arma::pinv(Xone * WX)  * Xone * (W % yone);
-
-
-        // std::cout<< "det: " << arma::det(tmp) << std::endl;
-
-        //  I.print("I");
-        //  (Xone * WX + I).print("Xone * WX + I");
-
-
-        //      / arma::inv(Xone * WX + I).print("inv(Xone * WX + I)");
-
-        // tmp = ;
         if(!arma::solve(B,Xone * WX + I,Xone * (W % yone))){
             B.zeros();
             B(B.n_elem-1) = 1;
         }
-
-        /* if(arma::det(tmp) == 0){
-            B.zeros();
-            B(B.n_elem-1) = 1;
-          //  B.print();
-
-        }else{
-          //  B = arma::pinv(Xone * WX)  * Xone * (W % yone);
-            B = arma::solve(tmp,Xone * (W % yone));
-        }*/
 
         ptr_y[i] = arma::as_scalar(Xq.col(i).st() * B(arma::span(0,dim-1))) + B(dim);
 
@@ -292,14 +261,12 @@ void LWR::f_flann(double *ptr_y, const arma::mat& Xq){
 
 void LWR::ann(double *ptr_index, const double * const ptr_Xq, const std::size_t num_cols){
     Xq.resize(dim,num_cols);
-    //   std::cout<< "Xq: (" << Xq.n_rows << " x " << Xq.n_cols << ")" << std::endl;
     conversion::array2mat(Xq,ptr_Xq,dim,num_cols,mtype);
     lwr_flann.ann(Xq);
     lwr_flann.get_indicies(ptr_index);
 }
 
 void LWR::ann(const arma::mat& Xq){
-    // std::cout<< "Xq: (" << Xq.n_rows << " x " << Xq.n_cols << ")" << std::endl;
     lwr_flann.ann(Xq);
 }
 

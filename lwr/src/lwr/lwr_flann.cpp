@@ -18,13 +18,9 @@ LWR_FLANN(){
 }
 
 void LWR_FLANN::set_data(const arma::mat& X){
-   // X = X.st();
-  //  std::cout<< "set_data" << std::endl;
     dim = X.n_rows;
     double const *a = X.memptr();
     dataset = flann::Matrix<double>(const_cast<double*>(a),X.n_cols,X.n_rows);
-   // X = X.st();
-   // ptr_X  = &X;
 }
 
 void LWR_FLANN::build_index(){
@@ -48,12 +44,7 @@ void LWR_FLANN::build_index(){
     }
     index_params["core"] = 4;
     sptr_index =  std::shared_ptr<Index<L2<double> > >(new Index<  L2<double> >(dataset,index_params));
-
-   // flann::print_params(index_params);
-
-
     sptr_index->buildIndex();
-  //  std::cout<< "build_index()" << std::endl;
 
 }
 
@@ -75,13 +66,6 @@ void LWR_FLANN::ann(const arma::mat& Xq){
 
         ptr_dists   = new double[query.rows*K];
         dists       = Matrix<double>(ptr_dists,query.rows, K);
-/*
-        std::cout<< "dataset: (" << dataset.rows << " x " << dataset.cols << ")" << std::endl;
-        std::cout<< "query:   (" << query.rows   << " x " << query.cols   << ")" << std::endl;
-        std::cout<< "dists:   (" << dists.rows   << " x " << dists.cols   << ")" << std::endl;
-        std::cout<< "indices: (" << indices.rows << " x " << indices.cols << ")" << std::endl;
-*/
-
 
         sptr_index->knnSearch(query,indices,dists,K,flann::SearchParams(128));
 
