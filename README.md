@@ -47,7 +47,7 @@ For a 3D example, run the following:
 ```sh
 ./non-parametric-regression/examples/lwr_example2.py
 ```
-this is what you should get:
+this is what you should get:<br> 
 <img src="docs/images/lwr_2D_low_var.png" width="400"/> <img src="docs/images/lwr_2D_mid.png" width="400"/>
 
 
