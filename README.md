@@ -39,6 +39,13 @@ the examples python code in
 ```sh
 ./non-parametric-regression/examples/example1.py
 ```
+<p align="center">
+<img src="docs/images/lwr_1D.png" width="480">
+</p>
+
+<img src="docs/images/lwr_2D_low_var.png" width="400"/> <img src="docs/images/lwr_2D_mid.png" width="400"/>
+
+
 
 # Regression methods
 
