@@ -26,7 +26,7 @@ cd to the directory in question and build it.
 $ cd non-parametric-regression
 $ mkdir build
 $ cd build
-$ cmake .
+$ cmake ..
 $ make
 ```
 install the library and python modules
