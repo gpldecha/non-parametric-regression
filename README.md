@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/gpldecha/non-parametric-regression.svg?branch=master)](https://travis-ci.org/gpldecha/non-parametric-regression)
 
-This package provides a set of non-parametric methods for regression. The implementation of the methods is in C++ for which a Python interface is provided. Non-parametric regression methods typically retains all the training data. The value of a new test point is a function of the neighboring points in the input space. As a result it is essential to use a fast space partition method, such as [**FLANN**](http://www.cs.ubc.ca/research/flann/).  Current implemented method are:
+
+This package provides a set of non-parametric methods for regression. The algorithmic implementation of the methods are in C++ whilst the interface is in Python. Non-parametric regression methods typically retains all the training data. The value of a new test point is a function of the neighboring points in the input space. As a result it is essential to use a fast space partition method, such as [**FLANN**](http://www.cs.ubc.ca/research/flann/). Current implemented method are:
 
 * Locally Weighted Regression (LWR)
 
