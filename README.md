@@ -1,6 +1,6 @@
 # Non-parametric regression
 
-[![Build Status](https://travis-ci.org/gpldecha/non-parametric-regression.svg?branch=master)](https://travis-ci.org/gpldecha/non-parametric-regression)
+[![Build Status](https://travis-ci.org/gpldecha/non-parametric-regression.svg?branch=master)](https://travis-ci.org/gpldecha/non-parametric-regression) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1fad67f83ce442aabc2805d4bd2d6fd)](https://www.codacy.com/app/chambrierg/non-parametric-regression?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gpldecha/non-parametric-regression&amp;utm_campaign=Badge_Grade)
 
 
 This package provides a set of non-parametric methods for regression. The algorithmic implementation of the methods are in C++ whilst the interface is in Python. Non-parametric regression methods typically retains all the training data. The value of a new test point is a function of the neighboring points in the input space. As a result it is essential to use a fast space partition method, such as [**FLANN**](http://www.cs.ubc.ca/research/flann/). Current implemented method are:
