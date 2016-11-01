@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(non-parametric-regression)
+project(npregression)
 
 
 set(CMAKE_CXX_FLAGS "-O1 -O2 -O3 -std=c++11 -mtune=native -fPIC -Wall -DARMA_BLAS_LONG -fopenmp")        ## Optimize
@@ -39,10 +39,7 @@ endif()
 
 message(status "    CMAKE_INSTALL_PREFIX:" ${CMAKE_INSTALL_PREFIX})
 
-
 add_subdirectory(lwr)
-add_subdirectory(python)
-add_subdirectory(tests)
 
 
 
