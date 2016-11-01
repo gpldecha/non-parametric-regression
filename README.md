@@ -15,7 +15,7 @@ to Eigen. Make sure you have installed all the dependencies to Eigen before proc
 can simply run the following command to install all the dependencies:
 
 ```sh
-sudo apt-get install libatlas-base-dev libatlas3gf-base libboost-python-dev libflann-dev libarmadillo-dev
+sudo apt-get install libatlas-base-dev libboost-python-dev libflann-dev libarmadillo-dev
 ```
 
 Checkout the repository:
