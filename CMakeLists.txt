@@ -9,7 +9,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}"                        
 
 
 set(EXECUTABLE_OUTPUT_PATH  ${PROJECT_SOURCE_DIR}/bin                                           )
-set(LIBRARY_OUTPUT_PATH     ${PROJECT_SOURCE_DIR}/lib                                           )
+set(LIBRARY_OUTPUT_PATH     ${PROJECT_SOURCE_DIR}/lib/npr                                       )
 set(LIB_INSTALL_PATH        ${CMAKE_INSTALL_PREFIX}lib/npr                                      )
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-rpath -Wl,$ORIGIN"                   )
 set(CMAKE_INSTALL_RPATH    "$ORIGIN"                                                            )
