@@ -4,9 +4,8 @@ sudo: required
 dist: trusty
 
 before_script:
-    - sudo apt-get install build-essential libatlas-dev libatlas3gf-base
-    - sudo apt-get install libboost-python-dev libflann-dev
-    - sudo apt-get install libarmadillo-dev
+    - sudo apt-get install build-essential
+    - sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev
     - mkdir build
     - cd build
     - cmake ..
