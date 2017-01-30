@@ -12,4 +12,4 @@ before_install:
     - cmake ..
     - make
 install:
-    - sudo make install
+    - make install
