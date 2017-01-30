@@ -10,4 +10,6 @@ before_install:
     - mkdir build
     - cd build
     - cmake ..
+    - make
+install:
     - sudo make install
