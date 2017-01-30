@@ -6,7 +6,7 @@
 #include <lwr/lwr_flann.h>
 #include "lwr/lwr_options.h"
 
-#include "npr/utils/npr_utils.h"
+#include "utils/npr_utils.h"
 
 namespace lwr{
 
