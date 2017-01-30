@@ -53,10 +53,6 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/lwr_export.h")
-endif()
-
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/lwr" TYPE FILE FILES
     "/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/generated/lwrConfig.cmake"
     "/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/generated/lwrConfigVersion.cmake"

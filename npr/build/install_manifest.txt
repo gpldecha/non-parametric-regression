@@ -3,6 +3,5 @@
 /usr/local/include/npr/lwr/lwr.h
 /usr/local/include/npr/lwr/lwr_options.h
 /usr/local/include/npr/lwr/lwr_point_cloud.h
-/usr/local/include/lwr_export.h
 /usr/local/lib/cmake/lwr/lwrConfig.cmake
 /usr/local/lib/cmake/lwr/lwrConfigVersion.cmake

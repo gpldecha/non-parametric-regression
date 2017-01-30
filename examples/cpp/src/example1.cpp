@@ -5,19 +5,8 @@ int main(int argc,char** argv)
 {
 
 
-  lwr::lwr_options lwr_opts;
+  lwr::LWR Lwr;
 
-  int dim = 1;
-  lwr_opts.D.resize(dim);
-  for(int i = 0; i < dim;i++){
-      lwr_opts.D[i] = 1*1;
-  }
-
-  lwr_opts.y_bias   = 0;
-  lwr_opts.bUseKDT  = true;
-  lwr::LWR Lwr(lwr_opts);
-
-  Lwr.mtype = conversion::ROW_M;
 
   // Generate data
   int num_data          = 200;

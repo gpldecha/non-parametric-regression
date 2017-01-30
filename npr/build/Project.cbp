@@ -84,7 +84,6 @@
          <Option type="3" />
          <Option compiler="gcc" />
          <Compiler>
-            <Add option="-DLWR_DEBUG=0" />
             <Add directory="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/include" />
             <Add directory="/home/guillaume/cpp_work_space/non-parametric-regression/npr/utils" />
             <Add directory="/usr/local/include" />
@@ -103,7 +102,6 @@
          <Option type="3" />
          <Option compiler="gcc" />
          <Compiler>
-            <Add option="-DLWR_DEBUG=0" />
             <Add directory="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/include" />
             <Add directory="/home/guillaume/cpp_work_space/non-parametric-regression/npr/utils" />
             <Add directory="/usr/local/include" />

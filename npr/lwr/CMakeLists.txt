@@ -14,7 +14,7 @@ set(LWR_SRC ${SRC_DIR}/lwr/lwr.cpp
             ${SRC_DIR}/lwr/lwr_flann.cpp
 )
 
-include_directories(${INCLUDE_DIR} ${UTILS_DIR} ${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
+include_directories(${INCLUDE_DIR} ${UTILS_DIR} ${Boost_INCLUDE_DIRS})
 add_library(${PROJECT_NAME} SHARED ${LWR_SRC} ${LWR_INC} ${UTILS_DIR})
 target_link_libraries(${PROJECT_NAME} ${ARMADILLO_LIBRARIES} ${FLANN_LIBRARIES})
 
