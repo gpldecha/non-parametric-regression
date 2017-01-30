@@ -11,5 +11,5 @@ before_install:
     - cd build
     - cmake ..
     - make
-install:
+script:
     - make install
