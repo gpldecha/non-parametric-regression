@@ -13,3 +13,10 @@ before_install:
     - make
 script:
     - sudo make install
+    - cmake ..
+before_install:
+    - cd pynpr
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make
