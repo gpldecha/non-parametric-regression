@@ -6,7 +6,9 @@
 *.exe
 *.o
 *.so
-
+examples/cpp/build
+npr/build
+build/
 build/*
 CMakeLists.txt.*
 CMakeLists.txt.user
