@@ -4,8 +4,7 @@
 #include "lwr/lwr_options.h"
 #include "lwr/lwr.h"
 
-
-#include "/usr/include/numpy/ndarrayobject.h"
+#include <numpy/ndarrayobject.h>
 
 using namespace boost::python;
 namespace py = boost::python;
