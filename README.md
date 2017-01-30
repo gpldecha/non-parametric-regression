@@ -34,10 +34,6 @@ install the library and python modules
 ```sh
 $ sudo make install 
 ```
-# Quick example
-
-# py-np-regression
-A python wrapper to the C++ [non-parameteric-regression](https://github.com/gpldecha/non-parametric-regression) library
 
 # Quick start
 For a quick example of usage, open your favourit python editor (I use [**Spyder**](https://pythonhosted.org/spyder/)) and run
