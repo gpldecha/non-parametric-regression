@@ -3,13 +3,11 @@ language: cpp
 sudo: required
 dist: trusty
 
-before_script:
+before_install:
     - sudo apt-get install build-essential
     - sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev
     - cd npr
     - mkdir build
     - cd build
     - cmake ..
-
-script:
-    - make
+    - sudo make install
