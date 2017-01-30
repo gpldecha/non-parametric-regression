@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="lwr" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\lwr\;CMake Files\lwr\cmake\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="lwr">
+         <Option output="/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/liblwr.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DLWR_DEBUG=0" />
+            <Add directory="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/include" />
+            <Add directory="/home/guillaume/cpp_work_space/non-parametric-regression/npr/utils" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 lwr" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="lwr/fast">
+         <Option output="/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/liblwr.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DLWR_DEBUG=0" />
+            <Add directory="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/include" />
+            <Add directory="/home/guillaume/cpp_work_space/non-parametric-regression/npr/utils" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 lwr/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/guillaume/cpp_work_space/non-parametric-regression/npr/build/lwr/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/src/lwr/lwr.cpp">
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/src/lwr/lwr_flann.cpp">
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/include/lwr/lwr.h">
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/include/lwr/lwr_flann.h">
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/include/lwr/lwr_options.h">
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/utils">
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/cmake/NPR_FindFLANN.cmake">
+          <Option virtualFolder="CMake Files\cmake\" />
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\lwr\" />
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\lwr\" />
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/cmake/Config.cmake.in">
+          <Option virtualFolder="CMake Files\lwr\cmake\" />
+      </Unit>
+      <Unit filename="/home/guillaume/cpp_work_space/non-parametric-regression/npr/lwr/cmake/Config.cmake.in">
+          <Option virtualFolder="CMake Files\lwr\cmake\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>
