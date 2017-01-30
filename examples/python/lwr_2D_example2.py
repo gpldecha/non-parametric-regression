@@ -5,7 +5,7 @@ from random import random, seed
 from matplotlib import cm
 
 # IMPORT LWR
-from pylwr import *
+from pynpr.pylwr import *
 
 
 #%% Generate training Data

@@ -4,9 +4,9 @@
 #include <armadillo>
 
 #include <lwr/lwr_flann.h>
-#include "lwr/lwr_options.h"
+#include <lwr/lwr_options.h>
 
-#include "utils/npr_utils.h"
+#include <utils/npr_utils.h>
 
 namespace lwr{
 

@@ -27,5 +27,6 @@ target_link_libraries(pylwr ${LWR_LIBRARIES} ${ARMADILLO_LIBRARIES} ${FLANN_LIBR
 
 
 # INSTALL PYTHON MODULES
-set(PYTHON_SITE_PACKAGES /usr/local/lib/python2.7/dist-packages/npr)
+set(PYTHON_SITE_PACKAGES /usr/local/lib/python2.7/dist-packages/pynpr)
 install(TARGETS pylwr DESTINATION ${PYTHON_SITE_PACKAGES})
+install(FILES ${PYNPR_DIR}/python/__init__.py DESTINATION ${PYTHON_SITE_PACKAGES})

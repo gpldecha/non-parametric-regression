@@ -20,8 +20,10 @@ message(STATUS "    FLANN_LIBRARIES     = ${FLANN_LIBRARIES}"       )
 
 
 set(NPR_DIR       ${CMAKE_CURRENT_SOURCE_DIR})
-set(UTILS_DIR     ${NPR_DIR})
 message(STATUS "    NPR DIR = ${NPR_DIR}")
 
+set(UTILS_DIR   ${NPR_DIR}/utils/include)
 
+
+add_subdirectory(utils)
 add_subdirectory(lwr)

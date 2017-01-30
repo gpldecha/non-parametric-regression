@@ -7,7 +7,7 @@ Created on Mon Jan 30 13:59:34 2017
 
 import sys
 import numpy as np
-from pylwr import *
+from pynpr.pylwr import *
 
 import matplotlib.pyplot as plt
 
