@@ -13,8 +13,7 @@ before_install:
     - make
 script:
     - sudo make install
-    - cmake ..
-    - cd pynpr
+    - cd ../../pynpr
     - mkdir build
     - cd build
     - cmake ..
