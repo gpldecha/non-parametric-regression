@@ -35,3 +35,36 @@ install the library and python modules
 $ sudo make install 
 ```
 # Quick example
+
+# py-np-regression
+A python wrapper to the C++ [non-parameteric-regression](https://github.com/gpldecha/non-parametric-regression) library
+
+# Quick start
+For a quick example of usage, open your favourit python editor (I use [**Spyder**](https://pythonhosted.org/spyder/)) and run
+the examples python code: 
+
+```sh
+./non-parametric-regression/examples/example1.py
+```
+
+<p align="center">
+<img src="docs/images/lwr_1D.png" width="480">
+</p>
+For a 3D example, run the following:
+```sh
+./non-parametric-regression/examples/lwr_example2.py
+```
+this is what you should get:<br> 
+<img src="docs/images/lwr_2D_low_var.png" width="400"/> <img src="docs/images/lwr_2D_mid.png" width="400"/>
+
+
+# Regression methods
+
+* Locally weighted regression (LWR)
+
+Library of locally weighted (LWR) regression. LWR is a memory based regression which is non-parameteric. 
+It stores a set of input, X, and target values, y which form the desired training data for the regressor 
+function y = f(X).
+
+When a new data point is queried X*, to be evaluated by the regressor f(X*), the K closest points to X* are found. 
+On these points a linear regressor function is fitted and when evaluated at the point X* gives the value y*.
