@@ -6,11 +6,11 @@ the examples python code:
 ## lwr_1D_example1.py
 
 <p align="center">
-  <img src="../../docs/images/first_screen_shot.png" width="640">
+  <img src="../../docs/images/first_screen_shot.png" width="1280">
 </p>
 
 <p align="center">
-  <img src="../../docs/images/second_screen_shot.png" width="480">
+  <img src="../../docs/images/second_screen_shot.png" width="1280">
 </p>
 
 
