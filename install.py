@@ -15,7 +15,7 @@ if __name__ == "__main__":
     dependencies = ['build-essential', 'libarmadillo-dev','libboost-python-dev',
                     'libflann-dev','python-numpy']
 
-    #cache = apt.Cache()
+    cache = apt.Cache()
 
     W  = '\033[0m'  # white (normal)
     R  = '\033[31m' # red
