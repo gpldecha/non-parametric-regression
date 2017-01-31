@@ -1,9 +1,6 @@
 import sys
 import os
 import shutil
-import subprocess
-
-import imp
 sys.path.append('/usr/lib/python2.7/dist-packages/')
 import apt
 
