@@ -5,4 +5,4 @@ dist: trusty
 
 
 script:
-  - python instal.py
+  - python install.py
