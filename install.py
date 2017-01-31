@@ -1,7 +1,6 @@
 import sys
 import os
 import shutil
-sys.path.append('/usr/lib/python2.7/dist-packages/')
 import apt
 
 if __name__ == "__main__":
