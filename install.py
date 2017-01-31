@@ -1,8 +1,8 @@
-import apt
 import sys
 import os
 import shutil
 import subprocess
+import apt
 
 if __name__ == "__main__":
 
