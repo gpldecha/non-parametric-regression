@@ -3,6 +3,8 @@ language: cpp
 sudo: required
 dist: trusty
 
+before_install:
+  - sudo apt-get install build-essential
 
 script:
   - python install.py
