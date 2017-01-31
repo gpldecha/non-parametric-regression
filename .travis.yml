@@ -3,9 +3,14 @@ language: cpp
 sudo: required
 dist: trusty
 
-before_script:
-  - sudo apt-get install python-apt
+before_install:
   - sudo apt-get install python3-apt
   - sudo apt-get install python-dev
+  - sudo apt-get install python-apt
+
+before_script:
+
+  - cd /usr/lib/python2.7/dist-packages/
+
 script:
   - python install.py

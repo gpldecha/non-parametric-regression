@@ -2,7 +2,7 @@ import sys
 import os
 import shutil
 import subprocess
-#import apt
+import apt
 
 if __name__ == "__main__":
 
