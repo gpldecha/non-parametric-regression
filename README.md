@@ -27,7 +27,7 @@ sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev python-nu
   ```
 The script will check the dependencies and install them if missing and then will first 
 build and install the [npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) C++ library
-and then build and isntall the python interface library [pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr).
+and then build and install the python interface library [pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr).
 
 # Quick start
 For a quick example of usage, open your favourit python editor (I use [**Spyder**](https://pythonhosted.org/spyder/)) and run
