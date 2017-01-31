@@ -18,19 +18,19 @@ if __name__ == "__main__":
 
     bCheckDependencies = False
 
-    if bCheckDependencies:
-        print '..... checking dependencies'
-        for package in dependencies:
-            pkg = cache[package]
-            if pkg.is_installed:
-              print package, '    ', G+'found'+W
-            else:
-                print package, '    ', R+'missing'+W
-                pkg.mark_install()
-                try:
-                    cache.commit()
-                except Exception, arg:
-                    print >> sys.stderr, "Sorry, package installation failed [{err}]".format(err=str(arg))
+    #if bCheckDependencies:
+    #    print '..... checking dependencies'
+    #    for package in dependencies:
+    #        pkg = cache[package]
+    #        if pkg.is_installed:
+    #          print package, '    ', G+'found'+W
+    #        else:
+    #            print package, '    ', R+'missing'+W
+    #            pkg.mark_install()
+    #            try:
+    #                cache.commit()
+    #            except Exception, arg:
+    #                print >> sys.stderr, "Sorry, package installation failed [{err}]".format(err=str(arg))
 
     print '..... build and install npr'
     # build and install NPR package
