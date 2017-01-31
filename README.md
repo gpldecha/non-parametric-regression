@@ -20,7 +20,7 @@ sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev python-nu
   ```sh
     clone https://github.com/gpldecha/non-parametric-regression.git
   ```
-2. Run the install.py script
+2. Run the install.py script (from within the folder non-parametric-regression)
 
   ```bash
     python install.py
