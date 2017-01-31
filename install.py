@@ -2,7 +2,7 @@ import sys
 import os
 import shutil
 import subprocess
-import apt
+#import apt
 
 if __name__ == "__main__":
 
@@ -12,24 +12,24 @@ if __name__ == "__main__":
     dependencies = ['build-essential', 'libarmadillo-dev','libboost-python-dev',
                     'libflann-dev','python-numpy']
 
-    cache = apt.Cache()
+    #cache = apt.Cache()
 
     W  = '\033[0m'  # white (normal)
     R  = '\033[31m' # red
     G  = '\033[32m' # green
 
     for package in dependencies:
-
-        pkg = cache[package]
-        if pkg.is_installed:
-            print package, '    ', G+'found'+W
-        else:
-            print package, '    ', R+'missing'+W
-            pkg.mark_install()
-            try:
-                cache.commit()
-            except Exception, arg:
-                print >> sys.stderr, "Sorry, package installation failed [{err}]".format(err=str(arg))
+        pass
+    #    pkg = cache[package]
+    #    if pkg.is_installed:
+    #      print package, '    ', G+'found'+W
+    #    else:
+    #        print package, '    ', R+'missing'+W
+    #        pkg.mark_install()
+    #        try:
+    #            cache.commit()
+    #            except Exception, arg:
+    #            print >> sys.stderr, "Sorry, package installation failed [{err}]".format(err=str(arg))
 
     # build and install NPR package
     if os.path.exists('./npr/build'):
