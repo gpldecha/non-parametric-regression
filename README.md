@@ -8,7 +8,7 @@ This package provides a set of non-parametric methods for regression. The implem
 [pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr). This library is built on [**FLANN**](http://www.cs.ubc.ca/research/flann/) which is a fast approximate nearest neighbour algorithm.
 
 
-<img src="/docs/images/lwr_2D_example1_train.png" width="400"/><img src="/docs/images/lwr_2D_mid.png" width="400"/>
+<img src="/docs/images/lwr_2D_example1_test.png" width="400"/><img src="/docs/images/lwr_2D_mid.png" width="400"/>
 <img src="/docs/images/lwr_1D.png" width="400"><img src="/docs/images/lwr_1D_example2.png" width="400">
 
 
