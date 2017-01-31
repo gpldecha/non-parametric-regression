@@ -4,13 +4,12 @@ sudo: required
 dist: XenialXerus
 
 python:
-  - 2.7.6
+  - 2.7
+  - 3.2
 
 before_install:
 
   - sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev python-numpy
-
-  - sudo apt-get install python-apt
 
 before_script:
 
