@@ -29,24 +29,15 @@ The script will check the dependencies and install them if missing and then will
 build and install the [npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) C++ library
 and then build and install the python interface library [pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr).
 
-# Quick start
-For a quick example of usage, open your favourit python editor (I use [**Spyder**](https://pythonhosted.org/spyder/)) and run
-the examples python code: 
+# Examples
 
-```sh
-./non-parametric-regression/examples/example1.py
-```
+1. [examples/python](https://github.com/gpldecha/non-parametric-regression/tree/master/examples/python)
+    
+    A set of python interface examples for 1D, 2D and 3D regressions.
+    
+2. [examples/cpp](https://github.com/gpldecha/non-parametric-regression/tree/master/examples/cpp)    
 
-<p align="center">
-<img src="docs/images/lwr_1D.png" width="480">
-</p>
-For a 3D example, run the following:
-```sh
-./non-parametric-regression/examples/lwr_example2.py
-```
-this is what you should get:<br> 
-<img src="docs/images/lwr_2D_low_var.png" width="400"/> <img src="docs/images/lwr_2D_mid.png" width="400"/>
-
+    A set of examples on how to use the C++ interface.
 
 # Regression methods
 
