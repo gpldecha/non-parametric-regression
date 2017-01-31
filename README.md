@@ -9,7 +9,7 @@ This package provides a set of non-parametric methods for regression. The implem
 
 
 <img src="/docs/images/lwr_2D_example1_train.png" width="400"/><img src="/docs/images/lwr_2D_mid.png" width="400"/>
-<img src="/docs/images/lwr_1D.png" width="400"><img src="/docs/images/first_screen_shot.png" width="400">
+<img src="/docs/images/lwr_1D.png" width="400"><img src="/docs/images/lwr_1D_example2.png" width="400">
 
 
 
