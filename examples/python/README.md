@@ -19,6 +19,11 @@ The second code block will plot the 1D regression:
 
 ## lwr_1D_example2.py
 
+<p align="center">
+<img src="../../docs/images/lwr_1D_example2.png" width="480">
+</p>
+
+
 ## lwr_2D_example1.py
 
 ## lwr_2D_example2.py
