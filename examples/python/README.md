@@ -3,8 +3,10 @@
 For a quick example of usage, open your favourit python editor (I use [**Spyder**](https://pythonhosted.org/spyder/)) and run
 the examples python code: 
 
+## lwr_1D_example1.py
+
 <p align="center">
-  <img src="../../docs/images/first_screen_shot.png" width="480">
+  <img src="../../docs/images/first_screen_shot.png" width="640">
 </p>
 
 <p align="center">
@@ -15,6 +17,12 @@ the examples python code:
 ```sh
 ./non-parametric-regression/examples/example1.py
 ```
+## lwr_1D_example2.py
+
+## lwr_2D_example1.py
+
+## lwr_2D_example2.py
+
 
 <p align="center">
 <img src="../../docs/images/lwr_1D.png" width="480">
