@@ -5,6 +5,9 @@ dist: trusty
 
 before_install:
 
+  - sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev python-numpy
+
+
 before_script:
 
   - ls /usr/lib/python2.7/dist-packages/apt
