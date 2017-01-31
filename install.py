@@ -32,7 +32,7 @@ if __name__ == "__main__":
             pkg.mark_install()
             try:
                 cache.commit()
-                except Exception, arg:
+            except Exception, arg:
                 print >> sys.stderr, "Sorry, package installation failed [{err}]".format(err=str(arg))
 
     print '..... build and install npr'
