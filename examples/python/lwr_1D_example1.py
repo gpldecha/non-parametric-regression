@@ -1,6 +1,3 @@
-# Checking your python path
-
-import sys
 import numpy as np
 from pynpr.pylwr import *
 
@@ -16,7 +13,7 @@ def plot_1D_LWR(X,y,Xq,yq):
     plt.title('LWR',fontsize=20)
 
 
-#%% Example 1 (1D)
+# Example 1 (1D)
 
 # Generate some test data (1D)
 num_samples = 200
@@ -36,5 +33,4 @@ yq = lwr.predict(Xq)
 
 plt.close('all')
 plot_1D_LWR(X,y,Xq,yq)
-
 
