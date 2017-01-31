@@ -33,6 +33,15 @@ and then build and install the python interface library [pynpr](https://github.c
 For a quick example of usage, open your favourit python editor (I use [**Spyder**](https://pythonhosted.org/spyder/)) and run
 the examples python code: 
 
+<p align="center">
+  <img src="docs/images/first_screen_shot.png" width="480">
+</p>
+
+<p align="center">
+  <img src="docs/images/second_screen_shot.png" width="480">
+</p>
+
+
 ```sh
 ./non-parametric-regression/examples/example1.py
 ```
