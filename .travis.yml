@@ -4,7 +4,7 @@ sudo: required
 dist: trusty
 
 before_install:
-  - sudo apt-get install build-essential
+  - sudo apt-get install python-dev build-essential 
 
 script:
   - python install.py
