@@ -10,7 +10,8 @@ before_install:
 
 before_script:
 
-  - cd /usr/lib/python2.7/dist-packages/
+  - cd /usr/lib/python2.7/dist-packages/apt
+  - ls
 
 script:
   - python install.py
