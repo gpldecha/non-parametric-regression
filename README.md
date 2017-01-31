@@ -3,37 +3,35 @@
 [![Build Status](https://travis-ci.org/gpldecha/non-parametric-regression.svg?branch=master)](https://travis-ci.org/gpldecha/non-parametric-regression) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1fad67f83ce442aabc2805d4bd2d6fd)](https://www.codacy.com/app/chambrierg/non-parametric-regression?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gpldecha/non-parametric-regression&amp;utm_campaign=Badge_Grade)
 
 
-This package provides a set of non-parametric methods for regression. The algorithmic implementation of the methods are in C++ whilst the interface is in Python. Non-parametric regression methods typically retains all the training data. The value of a new test point is a function of the neighboring points in the input space. As a result it is essential to use a fast space partition method, such as [**FLANN**](http://www.cs.ubc.ca/research/flann/). Current implemented method are:
+This package provides a set of non-parametric methods for regression. The implementation of the methods are in C++ 
+[npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) and Python interface is available 
+[pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr). This library is built on [**FLANN**](http://www.cs.ubc.ca/research/flann/) which is a fast approximate nearest neighoubr algorithm.
+
+Current implemented method are:
 
 * Locally Weighted Regression (LWR)
 
+# Dependencies
+
+```sh
+sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev python-numpy
+```
 
 # Installation
 
-This library is based on  [**Armadillo**](http://arma.sourceforge.net/download.html) which is an intuitive interface
-to Eigen. Make sure you have installed all the dependencies to Eigen before proceeding to install armadillo. You 
-can simply run the following command to install all the dependencies:
-
-```sh
-sudo apt-get install libatlas-base-dev libboost-python-dev libflann-dev libarmadillo-dev
-```
-
-Checkout the repository:
+1. Checkout the repository
 ```sh
 $ https://github.com/gpldecha/non-parametric-regression.git
 ```
-cd to the directory in question and build it.
-```sh
-$ cd non-parametric-regression
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make
+
+2. Run the install.py script
+
+```bash
+python install.py
 ```
-install the library and python modules
-```sh
-$ sudo make install 
-```
+The script will check the dependencies and install them if missing and then will first 
+build and install the [npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) C++ library
+and then build and isntall the python interface library [pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr).
 
 # Quick start
 For a quick example of usage, open your favourit python editor (I use [**Spyder**](https://pythonhosted.org/spyder/)) and run
