@@ -23,7 +23,6 @@ if __name__ == "__main__":
 
     print '..... checking dependencies'
     for package in dependencies:
-        pass
         pkg = cache[package]
         if pkg.is_installed:
           print package, '    ', G+'found'+W
