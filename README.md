@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/gpldecha/non-parametric-regression.svg?branch=master)](https://travis-ci.org/gpldecha/non-parametric-regression) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1fad67f83ce442aabc2805d4bd2d6fd)](https://www.codacy.com/app/chambrierg/non-parametric-regression?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gpldecha/non-parametric-regression&amp;utm_campaign=Badge_Grade)
 
 
-This package provides a set of non-parametric methods for regression. The implementation of the methods are in C++ 
-[npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) and Python interface is available 
+This package provides a set of non-parametric methods for regression. The implementation of the methods are in **C++** 
+[npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) and **Python** interface is available 
 [pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr). This library is built on [**FLANN**](http://www.cs.ubc.ca/research/flann/) which is a fast approximate nearest neighbour algorithm.
 
 # Dependencies
