@@ -16,15 +16,13 @@ sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev python-nu
 # Installation
 
 1. Checkout the repository
-```sh
-$ https://github.com/gpldecha/non-parametric-regression.git
-```
-
+  ```sh
+    clone https://github.com/gpldecha/non-parametric-regression.git
+  ```
 2. Run the install.py script
-
-```bash
-python install.py
-```
+  ```bash
+    python install.py
+  ```
 The script will check the dependencies and install them if missing and then will first 
 build and install the [npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) C++ library
 and then build and isntall the python interface library [pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr).
