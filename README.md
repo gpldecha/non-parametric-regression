@@ -5,7 +5,7 @@
 
 This package provides a set of non-parametric methods for regression. The implementation of the methods are in C++ 
 [npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) and Python interface is available 
-[pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr). This library is built on [**FLANN**](http://www.cs.ubc.ca/research/flann/) which is a fast approximate nearest neighoubr algorithm.
+[pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr). This library is built on [**FLANN**](http://www.cs.ubc.ca/research/flann/) which is a fast approximate nearest neighbour algorithm.
 
 # Dependencies
 
