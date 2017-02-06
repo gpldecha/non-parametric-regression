@@ -1,6 +1,6 @@
 # Non-parametric regression
 
-[![Build Status](https://travis-ci.org/gpldecha/npr.svg?branch=master)
+[![Build Status](https://travis-ci.org/gpldecha/npr.svg?branch=master)(https://travis-ci.org/gpldecha/npr)]
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1fad67f83ce442aabc2805d4bd2d6fd)](https://www.codacy.com/app/chambrierg/non-parametric-regression?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gpldecha/non-parametric-regression&amp;utm_campaign=Badge_Grade)
 
 
