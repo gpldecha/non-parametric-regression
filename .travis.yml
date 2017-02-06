@@ -1,0 +1,20 @@
+
+language: cpp
+sudo: required
+dist: 16.04
+
+python:
+  - 2.7
+  - 3.2
+
+before_install:
+
+  - sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev python-numpy
+
+before_script:
+
+  - python --version
+  - ls /usr/lib/python2.7/dist-packages/apt
+
+script:
+  - python install.py
