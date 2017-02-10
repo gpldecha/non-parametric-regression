@@ -1,7 +1,7 @@
 
 language: cpp
 sudo: required
-dist: 16.04
+dist: trusty
 
 python:
   - 2.7
