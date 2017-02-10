@@ -1,5 +1,6 @@
 # Non-parametric regression
 
+<<<<<<< HEAD
 Change to test travis.
 
 [![Build Status](https://travis-ci.org/gpldecha/non-parametric-regression.svg?branch=master)](https://travis-ci.org/gpldecha/non-parametric-regression) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1fad67f83ce442aabc2805d4bd2d6fd)](https://www.codacy.com/app/chambrierg/non-parametric-regression?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gpldecha/non-parametric-regression&amp;utm_campaign=Badge_Grade)
@@ -7,6 +8,14 @@ Change to test travis.
 
 This package provides a set of non-parametric methods for regression. The implementation of the methods are in **C++**
 [npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) and **Python** interface is available
+=======
+[![Build Status](https://travis-ci.org/gpldecha/npr.svg?branch=master)](https://travis-ci.org/gpldecha/npr)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1fad67f83ce442aabc2805d4bd2d6fd)](https://www.codacy.com/app/chambrierg/non-parametric-regression?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gpldecha/non-parametric-regression&amp;utm_campaign=Badge_Grade)
+
+
+This package provides a set of non-parametric methods for regression. The implementation of the methods are in **C++** 
+[npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) and **Python** interface is available 
+>>>>>>> 9fb0bf5c93470dcdcd9e4edbf697f4e7132dc7df
 [pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr). This library is built on [**FLANN**](http://www.cs.ubc.ca/research/flann/) which is a fast approximate nearest neighbour algorithm.
 
 
@@ -33,16 +42,26 @@ sudo apt-get install libboost-python-dev libflann-dev libarmadillo-dev python-nu
   ```bash
     python install.py
   ```
+<<<<<<< HEAD
 The script will check the dependencies and install them if missing and then will first
+=======
+The script will check the dependencies and install them if missing and then will first 
+>>>>>>> 9fb0bf5c93470dcdcd9e4edbf697f4e7132dc7df
 build and install the [npr](https://github.com/gpldecha/non-parametric-regression/tree/master/npr) C++ library
 and then build and install the python interface library [pynpr](https://github.com/gpldecha/non-parametric-regression/tree/master/pynpr).
 
 # Examples
 
 1. [examples/python](https://github.com/gpldecha/non-parametric-regression/tree/master/examples/python)
+<<<<<<< HEAD
 
     A set of python interface examples for 1D, 2D and 3D regressions.
 
+=======
+    
+    A set of python interface examples for 1D, 2D and 3D regressions.
+    
+>>>>>>> 9fb0bf5c93470dcdcd9e4edbf697f4e7132dc7df
 2. [examples/cpp](https://github.com/gpldecha/non-parametric-regression/tree/master/examples/cpp)    
 
     A set of examples on how to use the C++ interface.
@@ -51,9 +70,17 @@ and then build and install the python interface library [pynpr](https://github.c
 
 * Locally weighted regression (LWR)
 
+<<<<<<< HEAD
 Library of locally weighted (LWR) regression. LWR is a memory based regression which is non-parameteric.
 It stores a set of input, X, and target values, y which form the desired training data for the regressor
 function y = f(X).
 
 When a new data point is queried X*, to be evaluated by the regressor f(X*), the K closest points to X* are found.
+=======
+Library of locally weighted (LWR) regression. LWR is a memory based regression which is non-parameteric. 
+It stores a set of input, X, and target values, y which form the desired training data for the regressor 
+function y = f(X).
+
+When a new data point is queried X*, to be evaluated by the regressor f(X*), the K closest points to X* are found. 
+>>>>>>> 9fb0bf5c93470dcdcd9e4edbf697f4e7132dc7df
 On these points a linear regressor function is fitted and when evaluated at the point X* gives the value y*.
